@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Arpita 💝</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe6f0, #fff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .hidden { display: none; }
+        .btn {
+            background: linear-gradient(to right, #ff6ec4, #7873f5);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .btn:hover { transform: scale(1.05); }
+        .step {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #ff6ec4, #7873f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container mx-auto px-4">
+        <!-- Step 1 -->
+        <div class="step" id="step1">
+            <div class="emoji">🎉</div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gradient">Happy Birthday Arpita 💝</h1>
+            <p class="text-lg text-gray-700 mb-8">I made this little surprise just for you 🎂</p>
+            <button class="btn" onclick="nextStep(2)">Open Surprise</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step hidden" id="step2">
+            <div class="emoji">💐</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Dear Arpita,</h2>
+            <p class="text-lg text-gray-700 mb-8">On your special day, I just want you to know how amazing you are. You bring so much joy and light 💖</p>
+            <button class="btn" onclick="nextStep(3)">Next ➡️</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step hidden" id="step3">
+            <div class="emoji">🌟</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">You Deserve Everything Bright</h2>
+            <p class="text-lg text-gray-700 mb-8">May your birthday be filled with happiness, laughter, and all the love in the world 💝</p>
+            <button class="btn" onclick="nextStep(4)">Next ➡️</button>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step hidden" id="step4">
+            <div class="emoji">🎁</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">A Special Wish</h2>
+            <p class="text-lg text-gray-700 mb-8">Arpita, may all your dreams come true and your smile never fade 🌸</p>
+            <button class="btn" onclick="nextStep(5)">Final Surprise 🎂</button>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step hidden" id="step5">
+            <div class="emoji">🎂</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">My Birthday Wish For You</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                May your year be filled with joy, laughter, and dreams come true. May you always know how special
+                you are to me and to everyone lucky enough to know you.
+            </p>
+            <p class="text-xl font-semibold text-pink-600 mb-8">
+                🎉 Happy Birthday Arpita 💝 🎂
+            </p>
+            <button class="btn" id="confetti-btn">Celebrate!</button>
+            <p class="mt-8 text-gray-500">Made with ❤️ just for you</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        let currentStep = 1;
+        function nextStep(step) {
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            currentStep = step;
+        }
+
+        document.getElementById('confetti-btn').addEventListener('click', () => {
+            confetti({
+                particleCount: 200,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+        });
+    </script>
+</body>
+</html>
