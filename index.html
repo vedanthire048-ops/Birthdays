@@ -345,7 +345,43 @@ z-index: 1;
   <p class="text-xl font-semibold text-pink-600 mb-8">  
     🎉 Happy Birthday Arpita 💝 🎂  
   </p>  
-  
+  <script>
+  const steps = document.querySelectorAll(".step");
+  let currentStep = 1;
+
+  function showStep(step) {
+    steps.forEach((s, i) => {
+      if (i === step - 1) {
+        s.classList.add("active");
+      } else {
+        s.classList.remove("active");
+      }
+    });
+    updateProgress(step);
+    currentStep = step;
+  }
+
+  function updateProgress(step) {
+    const progress = document.getElementById("progress-bar");
+    const percent = ((step - 1) / (steps.length - 1)) * 100;
+    progress.style.width = percent + "%";
+  }
+
+  // button listeners
+  document.getElementById("start-btn").addEventListener("click", () => showStep(2));
+  document.getElementById("next-btn-2").addEventListener("click", () => showStep(3));
+  document.getElementById("next-btn-3").addEventListener("click", () => showStep(4));
+  document.getElementById("next-btn-4").addEventListener("click", () => showStep(5));
+
+  // confetti
+  document.getElementById("confetti-btn").addEventListener("click", () => {
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  });
+  </script>
 
 </div>  </div>  </div>  <script>    // Three.js Heart Background      const container = document.getElementById('canvas-container');
 
